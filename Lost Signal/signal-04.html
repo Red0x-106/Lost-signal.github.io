@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOST SIGNAL // 04</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <div class="top">
+            <span>LOST SIGNAL</span>
+            <span>04 / 04</span>
+        </div>
+
+        <p class="system">
+            > signal 03 accepted.
+        </p>
+
+        <p class="system">
+            > final signal detected.
+        </p>
+
+        <h1>SIGNAL 04</h1>
+
+        <p class="message">
+            The archive is still running.
+        </p>
+
+        <p class="message">
+            Something was left behind.
+        </p>
+
+
+        <!-- STATIC -->
+
+        <section class="puzzle">
+
+            <p class="label">ARCHIVE</p>
+
+            <p class="message">
+                The screen is full of static.
+            </p>
+
+            <p class="hint">
+                > there is something behind it.
+            </p>
+
+            <button id="staticButton" type="button">
+                CHECK SIGNAL
+            </button>
+
+        </section>
+
+
+        <!-- WAKE UP -->
+
+        <section id="wakeUp" class="puzzle hidden">
+
+            <p class="label">SYSTEM</p>
+
+            <p class="message">
+                A sleeping system was found.
+            </p>
+
+            <p class="hint">
+                > wake it up.
+            </p>
+
+            <button id="wakeButton" type="button">
+                WAKE UP
+            </button>
+
+        </section>
+
+
+        <!-- INVESTIGATION -->
+
+        <section id="investigation" class="puzzle hidden">
+
+            <p class="label">INVESTIGATION</p>
+
+            <p class="message">
+                Four files were found.
+            </p>
+
+            <p class="hint">
+                > open them in the correct order.
+            </p>
+
+
+            <div class="choice-list">
+
+                <button data-action="archive">
+                    ARCHIVE
+                </button>
+
+                <button data-action="logs">
+                    SYSTEM LOG
+                </button>
+
+                <button data-action="status">
+                    SIGNAL STATUS
+                </button>
+
+                <button data-action="unknown">
+                    UNKNOWN
+                </button>
+
+            </div>
+
+            <p id="output"></p>
+
+        </section>
+
+
+        <!-- FRAGMENTS -->
+
+        <section id="fragmentArea" class="puzzle hidden">
+
+            <p class="label">SIGNAL FRAGMENTS</p>
+
+            <p class="message">
+                Four fragments were found.
+            </p>
+
+            <p class="hint">
+                > find the signal that started everything.
+            </p>
+
+
+            <div class="choice-list">
+
+                <button data-fragment="one">
+                    SIGNAL 01
+                </button>
+
+                <button data-fragment="two">
+                    SIGNAL 02
+                </button>
+
+                <button data-fragment="three">
+                    SIGNAL 03
+                </button>
+
+                <button data-fragment="four">
+                    UNKNOWN
+                </button>
+
+            </div>
+
+            <p id="fragmentResult"></p>
+
+        </section>
+
+
+        <!-- FINAL ANSWER -->
+
+        <section id="answerArea" class="puzzle hidden">
+
+            <p class="label">FINAL PATTERN</p>
+
+            <p class="message">
+                The first signal is the key.
+            </p>
+
+            <p class="hint">
+                > enter the original pattern.
+            </p>
+
+            <input
+                id="finalAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="enter pattern"
+            >
+
+            <button id="finalBtn" type="button">
+                SUBMIT
+            </button>
+
+            <p id="finalResult"></p>
+
+        </section>
+
+
+        <!-- ENDING -->
+
+        <section id="ending" class="final hidden">
+
+            <p class="label">
+                CONNECTION COMPLETE
+            </p>
+
+            <p id="identityOutput" class="message"></p>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

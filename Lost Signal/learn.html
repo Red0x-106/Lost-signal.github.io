@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOST SIGNAL // CONNECTION</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <div class="top">
+            <span>UNKNOWN CHANNEL</span>
+            <span>02 / 04</span>
+        </div>
+
+        <p class="system">> connection found.</p>
+
+        <h1>LOOK CLOSER.</h1>
+
+        <p class="message">
+            Signal 01 was not just an answer.
+        </p>
+
+        <p class="message">
+            It was a connection.
+        </p>
+
+        <p class="message">
+            Find the numbers in the correct order.
+        </p>
+
+
+        <div class="number-grid">
+
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="number">9</button>
+            <button class="number">10</button>
+            <button class="number">11</button>
+            <button class="number">12</button>
+            <button class="number">13</button>
+            <button class="number">14</button>
+            <button class="number">15</button>
+            <button class="number">16</button>
+            <button class="number">17</button>
+            <button class="number">18</button>
+            <button class="number">19</button>
+            <button class="number">20</button>
+            <button class="number">21</button>
+            <button class="number">22</button>
+            <button class="number">23</button>
+            <button class="number">24</button>
+
+        </div>
+
+
+        <p class="hint">
+            > SIGNAL 01 has something to do with this.
+        </p>
+
+        <p id="gridResult"></p>
+
+
+        <section id="sourceArea" class="puzzle hidden">
+
+            <p class="message">
+                SIGNAL SOURCE FOUND.
+            </p>
+
+            <p class="hint">
+                > click SIGNAL SOURCE and go to Instagram.
+            </p>
+
+            <p class="hint">
+                > check the number after the ID name.
+            </p>
+
+            <button id="sourceBtn" type="button">
+                SIGNAL SOURCE
+            </button>
+
+        </section>
+
+
+        <section id="numberArea" class="puzzle hidden">
+
+            <p class="message">
+                You found the source.
+            </p>
+
+            <p class="hint">
+                > the number was hidden in the ID.
+            </p>
+
+            <p class="hint">
+                > redox_106
+            </p>
+
+            <input
+                id="instagramNumber"
+                type="text"
+                autocomplete="off"
+                placeholder="enter number"
+            >
+
+            <button id="numberBtn" type="button">
+                SUBMIT
+            </button>
+
+            <p id="numberResult"></p>
+
+        </section>
+
+
+        <section id="nextArea" class="puzzle hidden">
+
+            <p id="nextMessage"></p>
+
+            <p class="hint">
+                > the connection is not finished yet.
+            </p>
+
+            <button id="signal03Btn" type="button">
+                CONTINUE
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
