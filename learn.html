@@ -2,208 +2,141 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>LEARN // SIGNAL 02</title>
+    <title>LOST SIGNAL // CONNECTION</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
-    <main class="signal signal-02">
+    <main class="page">
 
-        <p class="small-text">
-            UNKNOWN CHANNEL // 02
-        </p>
+        <div class="top">
+            <span>UNKNOWN CHANNEL</span>
+            <span>02 / 04</span>
+        </div>
 
+        <p class="system">> connection found.</p>
 
-        <h1>
-            LOOK CLOSER.
-        </h1>
-
-
-        <p class="message">
-            You thought Signal 01 was finished.
-        </p>
-
+        <h1>LOOK CLOSER.</h1>
 
         <p class="message">
-            It wasn't.
+            Signal 01 was not just an answer.
         </p>
-
 
         <p class="message">
-            The numbers you found earlier were not only an answer.
+            It was a connection.
         </p>
-
 
         <p class="message">
-            They were a <b>connection.</b>
+            Find the numbers in the correct order.
         </p>
 
 
-        <p class="message">
-            Find it.
-        </p>
+        <div class="number-grid">
 
-
-        <!-- SIGNAL 02 GRID -->
-
-        <div class="grid">
-
-            <button class="grid-box">1</button>
-            <button class="grid-box">2</button>
-            <button class="grid-box">3</button>
-            <button class="grid-box">4</button>
-            <button class="grid-box">5</button>
-            <button class="grid-box">6</button>
-            <button class="grid-box">7</button>
-            <button class="grid-box">8</button>
-            <button class="grid-box">9</button>
-            <button class="grid-box">10</button>
-            <button class="grid-box">11</button>
-            <button class="grid-box">12</button>
-            <button class="grid-box">13</button>
-            <button class="grid-box">14</button>
-            <button class="grid-box">15</button>
-            <button class="grid-box">16</button>
-            <button class="grid-box">17</button>
-            <button class="grid-box">18</button>
-            <button class="grid-box">19</button>
-            <button class="grid-box">20</button>
-            <button class="grid-box">21</button>
-            <button class="grid-box">22</button>
-            <button class="grid-box">23</button>
-            <button class="grid-box">24</button>
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="number">9</button>
+            <button class="number">10</button>
+            <button class="number">11</button>
+            <button class="number">12</button>
+            <button class="number">13</button>
+            <button class="number">14</button>
+            <button class="number">15</button>
+            <button class="number">16</button>
+            <button class="number">17</button>
+            <button class="number">18</button>
+            <button class="number">19</button>
+            <button class="number">20</button>
+            <button class="number">21</button>
+            <button class="number">22</button>
+            <button class="number">23</button>
+            <button class="number">24</button>
 
         </div>
 
 
-        <p class="hint-info">
-             SIGNAL 01 has something to do with this grid<b>!</b>
+        <p class="hint">
+            > SIGNAL 01 has something to do with this.
         </p>
 
-
-        <!-- MAIN RESULT -->
-
-        <p id="result"></p>
+        <p id="gridResult"></p>
 
 
-        <!-- TRANSLATION ANSWER -->
-
-        <div
-            id="answer-area"
-            style="display: none;"
-        >
+        <section id="sourceArea" class="puzzle hidden">
 
             <p class="message">
-                The message pointed somewhere.<br>
-                Not a place on a map - a place you can reach.
+                SIGNAL SOURCE FOUND.
             </p>
 
-            <p class="message">
-                What palce did it tell u to go?<br>
-                <b>ONE WORD ONLY.</b>
+            <p class="hint">
+                > click SIGNAL SOURCE and go to Instagram.
             </p>
 
+            <p class="hint">
+                > check the number after the ID name.
+            </p>
 
-            <input
-                type="text"
-                id="learnAnswer"
-                placeholder="ENTER ANSWER"
-                autocomplete="off"
-            >
-
-
-            <button onclick="checkLearnAnswer()">
-                SUBMIT
+            <button id="sourceBtn" type="button">
+                SIGNAL SOURCE
             </button>
 
-        </div>
+        </section>
 
 
-        <!-- SIGNAL SOURCE -->
-
-        <div
-            id="source-area"
-            style="display: none;"
-        >
-
-            <p
-                class="message"
-                id="sourceMessage"
-            >
-                The signal source has been located.
-            </p>
-
-
-            <button onclick="goToWebsite()">
-                OPEN SIGNAL SOURCE
-            </button>
-
-        </div>
-
-
-        <!-- INSTAGRAM NUMBER -->
-
-        <div
-            id="number-area"
-            style="display: none;"
-        >
+        <section id="numberArea" class="puzzle hidden">
 
             <p class="message">
                 You found the source.
             </p>
 
-
-            <p class="message">
-                Now find the number hidden in the Instagram ID.
+            <p class="hint">
+                > the number was hidden in the ID.
             </p>
 
+            <p class="hint">
+                > redox_106
+            </p>
 
             <input
-                type="text"
                 id="instagramNumber"
-                placeholder="ENTER NUMBER"
+                type="text"
                 autocomplete="off"
+                placeholder="enter number"
             >
 
-
-            <button onclick="checkInstagramNumber()">
+            <button id="numberBtn" type="button">
                 SUBMIT
             </button>
 
-        </div>
+            <p id="numberResult"></p>
+
+        </section>
 
 
-        <!-- SIGNAL 03 UNLOCK -->
+        <section id="nextArea" class="puzzle hidden">
 
-        <div
-            id="next-area"
-            style="display: none;"
-        >
+            <p id="nextMessage"></p>
 
-            <p
-                class="message"
-                id="nextMessage"
-            ></p>
+            <p class="hint">
+                > the connection is not finished yet.
+            </p>
 
-
-            <button onclick="goToSignal03()">
+            <button id="signal03Btn" type="button">
                 CONTINUE
             </button>
 
-        </div>
-
+        </section>
 
     </main>
 

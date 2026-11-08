@@ -1,175 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LOST SIGNAL // SIGNAL 04</title>
+    <title>LOST SIGNAL // 04</title>
 
-    <link rel="stylesheet" href="signal04.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="terminal" id="terminal">
+    <main class="page">
 
-        <!-- TOP BAR -->
+        <div class="top">
+            <span>LOST SIGNAL</span>
+            <span>04 / 04</span>
+        </div>
 
-        <header class="topbar">
+        <p class="system">
+            > signal 03 accepted.
+        </p>
 
-            <span>LOST SIGNAL // SIGNAL 04</span>
+        <p class="system">
+            > final signal detected.
+        </p>
 
-            <span id="connection">
-                ● CONNECTION: STABLE
-            </span>
+        <h1>SIGNAL 04</h1>
 
-        </header>
+        <p class="message">
+            The archive is still running.
+        </p>
+
+        <p class="message">
+            Something was left behind.
+        </p>
 
 
-        <!-- SYSTEM INFORMATION -->
+        <!-- STATIC -->
 
-        <section class="system-info">
+        <section class="puzzle">
 
-            <p>
-                SIGNAL SOURCE:
-                <span>UNKNOWN</span>
+            <p class="label">ARCHIVE</p>
+
+            <p class="message">
+                The screen is full of static.
             </p>
 
-            <p>
-                ARCHIVE STATUS:
-                <span id="archiveStatus">CORRUPTED</span>
+            <p class="hint">
+                > there is something behind it.
             </p>
 
-            <p>
-                OBSERVER:
-                <span id="observerStatus">ACTIVE</span>
-            </p>
-
-        </section>
-
-
-        <div class="line"></div>
-
-
-        <!-- INTRO -->
-
-        <section class="intro">
-
-            <p class="small-text">
-                 SIGNAL 04 DETECTED.
-            </p>
-
-            <h1>SIGNAL 04</h1>
-
-            <p class="main-message">
-                There is nothing here.
-            </p>
-
-            <p class="sub-message">
-                You may leave.
-            </p>
-
-        </section>
-
-
-        <!-- HIDDEN TRIGGER -->
-
-        <section class="hidden-trigger-area">
-
-            <button id="staticButton" aria-label="Unknown system control">
-                _
+            <button id="staticButton" type="button">
+                CHECK SIGNAL
             </button>
 
         </section>
 
 
-        <!-- SYSTEM WAKEUP -->
+        <!-- WAKE UP -->
 
-        <section id="wakeUp" class="wake-up"></section>
+        <section id="wakeUp" class="puzzle hidden">
+
+            <p class="label">SYSTEM</p>
+
+            <p class="message">
+                A sleeping system was found.
+            </p>
+
+            <p class="hint">
+                > wake it up.
+            </p>
+
+            <button id="wakeButton" type="button">
+                WAKE UP
+            </button>
+
+        </section>
 
 
         <!-- INVESTIGATION -->
 
-        <section id="investigation" class="investigation">
+        <section id="investigation" class="puzzle hidden">
 
-            <p class="system-text">
-                 ARCHIVE ACCESS AVAILABLE.
+            <p class="label">INVESTIGATION</p>
+
+            <p class="message">
+                Four files were found.
             </p>
 
-            <p class="system-text dim">
-                The system does not trust you.
-            </p>
-
-            <p class="system-text dim">
-                Four areas contain fragments of the signal.
-            </p>
-
-            <p class="system-text dim">
-                Investigate them.
+            <p class="hint">
+                > open them in the correct order.
             </p>
 
 
-            <div class="options">
+            <div class="choice-list">
 
                 <button data-action="archive">
-                    [ OPEN ARCHIVE ]
+                    ARCHIVE
                 </button>
 
                 <button data-action="logs">
-                    [ SYSTEM LOG ]
+                    SYSTEM LOG
                 </button>
 
                 <button data-action="status">
-                    [ SIGNAL STATUS ]
+                    SIGNAL STATUS
                 </button>
 
                 <button data-action="unknown">
-                    [ UNKNOWN ]
+                    UNKNOWN
                 </button>
 
             </div>
 
-
-            <div class="sequence-box">
-
-                <p>
-                    SEQUENCE:
-                    <span id="sequenceCount">00</span>
-                    / 04
-                </p>
-
-            </div>
+            <p id="output"></p>
 
         </section>
 
 
-        <!-- OUTPUT -->
+        <!-- FRAGMENTS -->
 
-        <section
-            class="output"
-            id="output">
-        </section>
+        <section id="fragmentArea" class="puzzle hidden">
 
+            <p class="label">SIGNAL FRAGMENTS</p>
 
-        <!-- SECOND STAGE -->
-
-        <section
-            id="secondStage"
-            class="second-stage">
-
-            <p class="important">
-            THE SYSTEM HAS REMEMBERED YOUR ACTIONS.
-            </p>
-
-            <p>
+            <p class="message">
                 Four fragments were found.
             </p>
 
-            <p>
-                But one of them does not belong here.
+            <p class="hint">
+                > find the signal that started everything.
             </p>
 
-            <div class="fragment-list">
+
+            <div class="choice-list">
 
                 <button data-fragment="one">
                     SIGNAL 01
@@ -184,100 +150,63 @@
                 </button>
 
                 <button data-fragment="four">
-                    SIGNAL 04
+                    UNKNOWN
                 </button>
 
             </div>
+
+            <p id="fragmentResult"></p>
 
         </section>
 
 
-        <!-- ANSWER AREA -->
+        <!-- FINAL ANSWER -->
 
-        <section
-            class="answer-area"
-            id="answerArea">
+        <section id="answerArea" class="puzzle hidden">
 
-            <p>
-                 ARCHIVE RESTORATION COMPLETE.
+            <p class="label">FINAL PATTERN</p>
+
+            <p class="message">
+                The first signal is the key.
             </p>
 
-            <p class="dim">
-                Enter the recovered signal sequence.
+            <p class="hint">
+                > enter the original pattern.
             </p>
 
-            <div class="input-row">
+            <input
+                id="finalAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="enter pattern"
+            >
 
-                <input
-                    type="text"
-                    id="answerInput"
-                    autocomplete="off"
-                    placeholder="ENTER RESPONSE"
-                >
+            <button id="finalBtn" type="button">
+                SUBMIT
+            </button>
 
-                <button id="submitAnswer">
-                    SUBMIT
-                </button>
-
-            </div>
-
-            <p id="answerMessage"></p>
+            <p id="finalResult"></p>
 
         </section>
 
 
         <!-- ENDING -->
 
-        <section
-            class="ending"
-            id="ending">
+        <section id="ending" class="final hidden">
 
-            <p class="glitch-text">
-                SIGNAL 04 // DECODED
+            <p class="label">
+                CONNECTION COMPLETE
             </p>
 
-            <div class="ending-line"></div>
-
-            <p>
-                SOURCE:
-                <span>RED0X</span>
-            </p>
-
-            <p>
-                SIGNALS FOUND:
-                <span>04</span>
-            </p>
-
-            <p>
-                CONNECTION:
-                <span>TERMINATED</span>
-            </p>
-
-            <p>
-                OBSERVER:
-                <span>OFFLINE</span>
-            </p>
-
-            <br>
-
-            <p class="final-message">
-                THANK YOU FOR PLAYING.
-            </p>
-
-            <p class="lost-signal">
-                LOST SIGNAL
-            </p>
-
-            <p class="end-text">
-                // END
-            </p>
+            <p id="identityOutput" class="message"></p>
 
         </section>
 
     </main>
 
 
-    <script src="signal04.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -1,46 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-       <meta charset="UTF-8">
-       <meta  name="viewport" content="width=device-width, initial-scale-1.0">
-       <title>SIGNAL 02</title>
-       <link rel="stylesheet" href="style.css">
 
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
+    <title>LOST SIGNAL // 02</title>
 
-      <main class="signal signal-02">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <p class="small-text">SOMEWHERE // SIGNAL 02     </p>
-        <h1> YOU FOUND IT!</h1>
+<body>
 
+    <main class="page">
 
-        <P class="message">
-            But this Signal is different...
-        </P>
+        <div class="top">
+            <span>LOST SIGNAL</span>
+            <span>02 / 04</span>
+        </div>
+
+        <p class="system">> signal 01 accepted.</p>
+        <p class="system">> another signal detected.</p>
+
+        <h1>SIGNAL 02</h1>
+
         <p class="message">
-            There is nothing to decode here.
+            You found the first signal.
         </p>
 
         <p class="message">
-            You have to <b>look somewhere else.</b>
-
+            But it was only the beginning.
         </p>
 
-        <button onclick="goNext()">CONTINUE</button>
+        <section class="signal-card">
 
+            <p class="label">MESSAGE</p>
 
-      </main>
-      
-      
-      <script>
-        function goNext() {
-            window.location.href ="learn.html";
-            
-        }
+            <p class="message">
+                The numbers from the first signal
+                were not only an answer.
+            </p>
 
-        
-      </script>
-    </body>
+            <p class="message">
+                They were a path.
+            </p>
+
+            <p class="message">
+                Follow the path.
+            </p>
+
+        </section>
+
+        <p class="hint">
+            > something is waiting behind the signal.
+        </p>
+
+        <button id="signal02Continue">
+            CONTINUE
+        </button>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
 </html>

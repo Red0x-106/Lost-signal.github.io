@@ -2,300 +2,212 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>SIGNAL 03 // UNKNOWN</title>
+    <title>LOST SIGNAL // 03</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-    <main class="signal signal-03">
+    <main class="page">
 
-        <p class="small-text">
-            UNKNOWN CHANNEL // 03
-        </p>
+        <div class="top">
+            <span>LOST SIGNAL</span>
+            <span>03 / 04</span>
+        </div>
 
-        <h1>
-            KEEP LOOKING.
-        </h1>
+        <p class="system">> signal 02 accepted.</p>
+        <p class="system">> another signal detected.</p>
 
-        <p class="message">
-            Signal 02 wasn't the end.
-        </p>
+        <h1>KEEP LOOKING.</h1>
 
         <p class="message">
-            You followed the connection.
+            The signal is getting closer.
         </p>
 
         <p class="message">
-            Now something else is waiting.
+            Follow each clue carefully.
         </p>
 
 
-        <div class="signal-box">
+        <!-- RIDDLE -->
 
-            <p class="small-text">
-                INCOMING MESSAGE
+        <section class="puzzle">
+
+            <p class="label">CLUE 01</p>
+
+            <p class="message">
+                I can show you a place you've never been.
             </p>
 
-            <p class="riddle">
+            <p class="message">
+                I can guide you without moving.
+            </p>
 
-                I can show you a place you've never been.<br>
-                I can guide you without moving.<br>
-                I can speak without making a sound.<br><br>
+            <p class="message">
+                I can speak without making a sound.
+            </p>
 
-                <b>What am I?</b>
-
+            <p class="message">
+                What am I?
             </p>
 
             <input
-                type="text"
                 id="riddleAnswer"
-                placeholder="ENTER ANSWER"
+                type="text"
                 autocomplete="off"
+                placeholder="enter answer"
             >
 
-            <button onclick="checkRiddle()">
+            <button id="riddleButton" type="button">
                 SUBMIT
             </button>
 
             <p id="riddleResult"></p>
 
-        </div>
+        </section>
 
 
-        <div
-            id="equation-area"
-            style="display: none;"
-        >
+        <!-- EQUATION 1 -->
 
-            <p class="message">
-                SIGNAL ACCEPTED.
-            </p>
+        <section id="equationArea" class="puzzle hidden">
+
+            <p class="label">CLUE 02</p>
 
             <p class="message">
-                Good.
+                x + 17 = 52
             </p>
+
+            <input
+                id="equationAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="find x"
+            >
+
+            <button id="equationButton" type="button">
+                SUBMIT
+            </button>
+
+            <p id="equationResult"></p>
+
+        </section>
+
+
+        <!-- EQUATION 2 -->
+
+        <section id="equation2Area" class="puzzle hidden">
+
+            <p class="label">CLUE 03</p>
 
             <p class="message">
-                But a map only tells you where.
+                y - 61 = 78
             </p>
 
-            <p class="message">
-                The next signal needs a number.
-            </p>
+            <input
+                id="equation2Answer"
+                type="text"
+                autocomplete="off"
+                placeholder="find y"
+            >
 
-            <p class="hint-info">
-                SOLVE THE EQUATION.
-            </p>
+            <button id="equation2Button" type="button">
+                SUBMIT
+            </button>
 
-            <div class="signal-box">
+            <p id="equation2Result"></p>
 
-                <p class="small-text">
-                    EQUATION 01
-                </p>
-
-                <p class="equation">
-                    x + 17 = 52
-                </p>
-
-                <input
-                    type="text"
-                    id="equationAnswer"
-                    placeholder="ENTER X"
-                    autocomplete="off"
-                >
-
-                <button onclick="checkEquation()">
-                    SUBMIT
-                </button>
-
-                <p id="equationResult"></p>
-
-            </div>
-
-        </div>
+        </section>
 
 
-        <div
-            id="equation2-area"
-            style="display: none;"
-        >
+        <!-- LOCATION -->
 
-        
+        <section id="locationArea" class="puzzle hidden">
 
-            <p class="message">
-                FIRST NUMBER ACCEPTED.
-            </p>
-
-            <p class="message">
-                One number isn't enough.
-            </p>
-
-            <p class="hint-info">
-                FIND THE SECOND ONE.
-            </p>
-
-            <div class="signal-box">
-
-                <p class="small-text">
-                    EQUATION 02
-                </p>
-
-                <p class="equation">
-                    y - 61 = 78
-                </p>
-
-                <input
-                    type="text"
-                    id="equation2Answer"
-                    placeholder="ENTER Y"
-                    autocomplete="off"
-                >
-
-                <button onclick="checkEquation2()">
-                    SUBMIT
-                </button>
-
-                <p id="equation2Result"></p>
-
-            </div>
-
-        </div>
-
-
-        <div
-            id="location-area"
-            style="display: none;"
-        >
-
-            <p class="message">
-                COORDINATE SIGNAL UNLOCKED.
-            </p>
+            <p class="label">CLUE 04</p>
 
             <p class="message">
                 35 , 139
             </p>
 
+            <p class="hint">
+                > these numbers point to a place.
+            </p>
 
-            <div id="city-step">
-
-                <p class="message">
-                    THESE COORDINATES POINT TO A CITY.
-                    <br>
-                    FIND THE CITY.
-                </p>
-
-                <input
-                    type="text"
-                    id="cityAnswer"
-                    placeholder="ENTER CITY"
-                    autocomplete="off"
-                >
-
-                <button onclick="checkCity()">
-                    SUBMIT
-                </button>
-
-                <p id="cityResult"></p>
-
-            </div>
-
-
-            <div
-                id="shibuya-step"
-                style="display: none;"
+            <input
+                id="locationAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="enter place"
             >
 
-                <p class="message">
-                    CITY CONFIRMED // TOKYO, JAPAN
-                </p>
+            <button id="locationButton" type="button">
+                SUBMIT
+            </button>
 
-                <p class="message">
-                    FIND THE CROSSING.
-                </p>
+            <p id="locationResult"></p>
 
-
-                
-                <p class="riddle">
-
-                    Hundreds move.<br>
-                    Thousands pass.<br>
-                    Lights change.<br>
-                    People stop.<br>
-                    Then the whole street moves at once.<br><br>
-
-                    <b>WHERE IS THE SIGNAL?</b>
-
-                </p>
-
-                <input
-                    type="text"
-                    id="locationAnswer"
-                    placeholder="ENTER LOCATION"
-                    autocomplete="off"
-                >
-
-                <button onclick="checkLocation()">
-                    SUBMIT
-                </button>
-
-                <p id="locationResult"></p>
+        </section>
 
 
+        <!-- SHIBUYA -->
 
-            </div>
+        <section id="shibuyaArea" class="puzzle hidden">
 
-        </div>
+            <p class="label">CLUE 05</p>
 
-
-        <div
-            id="crossing-game"
-            class="game-area"
-            style="display: none;"
-        >
-
-            <p class="small-text">
-                MINI-GAME // CROSSING
+            <p class="message">
+                Crowds.
             </p>
 
-            <p class="game-title">
-                CROSS THE SIGNAL.
+            <p class="message">
+                Lights.
             </p>
 
-            <p class="game-info">
-                Reach the other side without getting hit.
+            <p class="message">
+                People crossing from every direction.
             </p>
 
-            <div class="game-stats">
+            <p class="hint">
+                > find the place in Tokyo.
+            </p>
 
-                <span>
-                    TIME:
-                    <b id="gameTimer">30</b>
-                </span>
+            <input
+                id="shibuyaAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="enter place"
+            >
 
-                <span>
-                    STATUS:
-                    <b id="gameStatus">WAITING</b>
-                </span>
+            <button id="shibuyaButton" type="button">
+                SUBMIT
+            </button>
 
-            </div>
+            <p id="shibuyaResult"></p>
 
-            <div id="game-board">
+        </section>
+
+
+        <!-- CROSSING GAME -->
+
+        <section id="gameArea" class="game hidden">
+
+            <p class="label">CROSS THE SIGNAL</p>
+
+            <p class="message">
+                Reach the exit before the signal disappears.
+            </p>
+
+            <p class="hint">
+                > use arrow keys or WASD.
+            </p>
+
+            <div id="gameBoard">
 
                 <div id="player"></div>
-
-                <div class="road-line line-1"></div>
-                <div class="road-line line-2"></div>
 
                 <div id="finish">
                     EXIT
@@ -303,298 +215,139 @@
 
             </div>
 
-            <p id="gameMessage"></p>
-
-            <button
-                id="startGameBtn"
-                onclick="startCrossingGame()"
-            >
-                START CROSSING
+            <button id="startGame" type="button">
+                START
             </button>
 
-        </div>
+            <p id="gameResult"></p>
+
+        </section>
 
 
-        <div
-            id="jumble-stage"
-            class="mini-stage"
-            style="display: none;"
-        >
+        <!-- JUMBLE -->
 
-            <p class="small-text">
-                SIGNAL TEST // 04
+        <section id="jumbleArea" class="puzzle hidden">
+
+            <p class="label">CLUE 06</p>
+
+            <p class="message">
+                Put these words in the correct order.
             </p>
 
-            <h2>
-                THE MESSAGE IS BROKEN.
-            </h2>
-
-            <p class="stage-text">
-                Something came through the connection.
+            <p class="message">
+                SIGNAL THE FOLLOW
             </p>
 
-            <p class="stage-text">
-                But the signal was damaged.
-            </p>
-
-
-
-
-
-            <div class="puzzle-box">
-
-
-
-                <p class="small-text">
-                    REASSEMBLE THE SIGNAL
-                </p>
-
-
-
-
-                <p id="jumbleWords" class="jumble-words">
-                    SIGNAL THE FOLLOW
-
-
-                </p>
-
-
-
-                <input
-                    type="text"
-                    id="jumbleAnswer"
-                    placeholder="ENTER MESSAGE"
-                    autocomplete="off"
-                >
-
-
-                <button onclick="checkJumble()">
-                    SUBMIT
-
-
-                </button>
-
-                <p id="jumbleResult"></p>
-
-
-
-                <p class="attempt-info">
-                    ATTEMPTS LEFT:
-                    <b id="jumbleAttempts">3</b>
-
-                </p>
-
-
-
-            </div>
-
-
-
-
-
-
-        </div>
-
-
-
-
-        <div
-            id="hidden-stage"
-            class="mini-stage"
-            style="display: none;"
-        >
-
-            <p class="small-text">
-                SIGNAL TEST // 05
-            </p>
-
-            <h2>
-                DON'T LOOK AWAY.
-            </h2>
-
-            <p class="stage-text">
-                The connection is unstable.
-            </p>
-
-            <p class="stage-text">
-                Something may appear for only a moment.
-            </p>
-
-            <div id="hidden-message-box">
-
-                <p id="hidden-message">
-                    WAITING...
-                </p>
-
-            </div>
-
-            
-
-
-            <button
-                id="hiddenContinueBtn"
-                onclick="startMemoryGame()"
-                style="display: none;"
+            <input
+                id="jumbleAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="enter phrase"
             >
-                CONTINUE
+
+            <button id="jumbleButton" type="button">
+                SUBMIT
             </button>
 
-        </div>
+            <p id="jumbleResult"></p>
+
+        </section>
 
 
-        <div
-            id="memory-stage"
-            class="mini-stage"
-            style="display: none;"
-        >
+        <!-- HIDDEN MESSAGE -->
 
-            <p class="small-text">
-                SIGNAL TEST // 06
+        <section id="hiddenArea" class="puzzle hidden">
+
+            <p class="label">SIGNAL FOUND</p>
+
+            <p class="message">
+                Something is hidden inside the signal.
             </p>
 
-            <h2>
-                MEMORY REQUIRED.
-            </h2>
-            
-
-
-            <p class="stage-text">
-                Find every matching pair.
+            <p class="hint">
+                > click the button and wait.
             </p>
 
-            <p class="memory-stats">
-                MATCHES:
-                <b id="matchCount">0</b> / 4
+            <button id="hiddenButton" type="button">
+                SEARCH
+            </button>
+
+            <p id="hiddenResult"></p>
+
+        </section>
+
+
+        <!-- MEMORY GAME -->
+
+        <section id="memoryArea" class="puzzle hidden">
+
+            <p class="label">MEMORY</p>
+
+            <p class="message">
+                Find all four matching pairs.
             </p>
 
-            <div id="memory-board">
+            <div class="memory-grid">
 
-                <button
-                    class="memory-card"
-                    data-card="A"
-                >
+                <button class="memory-card" data-value="red">
                     ?
                 </button>
 
-                <button
-                    class="memory-card"
-                    data-card="B"
-                >
+                <button class="memory-card" data-value="blue">
                     ?
                 </button>
 
-                <button
-                    class="memory-card"
-                    data-card="C"
-                >
+                <button class="memory-card" data-value="signal">
                     ?
                 </button>
 
-                <button
-                    class="memory-card"
-                    data-card="D"
-                >
+                <button class="memory-card" data-value="zero">
                     ?
                 </button>
 
-                <button
-                    class="memory-card"
-                    data-card="A"
-                >
+                <button class="memory-card" data-value="zero">
                     ?
                 </button>
 
-                <button
-                    class="memory-card"
-                    data-card="B"
-                >
+                <button class="memory-card" data-value="signal">
                     ?
                 </button>
 
-                <button
-                    class="memory-card"
-                    data-card="C"
-                >
+                <button class="memory-card" data-value="red">
                     ?
                 </button>
 
-                <button
-                    class="memory-card"
-                    data-card="D"
-                >
+                <button class="memory-card" data-value="blue">
                     ?
                 </button>
 
             </div>
 
-            <p id="memoryMessage"></p>
-
-        </div>
+        </section>
 
 
-        <div
-            id="signal03-final"
-            class="mini-stage"
-            style="display: none;"
-        >
+        <!-- SIGNAL 03 COMPLETE -->
 
-            <p class="small-text">
-                SIGNAL 03 // COMPLETE
+        <section id="signal03Complete" class="final hidden">
+
+            <p class="label">SIGNAL 03 COMPLETE</p>
+
+            <p class="message">
+                You found the third signal.
             </p>
 
-            <h2>
-                CONNECTION ESTABLISHED.
-            </h2>
-
-            <p class="final-text">
-                You followed the signal.
+            <p class="hint">
+                > one final signal remains.
             </p>
 
-            <p class="final-text">
-                You found what was hidden.
-            </p>
+            <a href="signal-04.html">
+                SIGNAL 04
+            </a>
 
-            <p class="final-text">
-                And you kept going.
-            </p>
-
-            
-            <div class="final-box">
-
-                <p class="small-text">
-                    SIGNAL STATUS
-                </p>
-
-                <p class="final-status">
-                    03 // DECODED
-                </p>
-
-                <p class="final-subtext">
-                    THE CONNECTION CONTINUES.
-                </p>
-
-            </div>
-
-
-        </div>
-
-        <div id="signal4Reveal" class="signal4-reveal">
-    <p> SIGNAL 03 COMPLETE.</p>
-
-
-    <p> ARCHIVE CONNECTION FOUND.</p>
-
-    <p class="dim">ONE SIGNAL REMAINS.</p>
-
-    <a href="signal-04.html" class="signal4-button">
-        ENTER SIGNAL 04
-    </a>
-    
-</div>
-
-
+        </section>
 
     </main>
+
 
     <script src="script.js"></script>
 

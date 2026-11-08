@@ -1,1694 +1,832 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    const sourceArea = document.getElementById("source-area");
-    const numberArea = document.getElementById("number-area");
-    const nextArea = document.getElementById("next-area");
-    const signal4Reveal = document.getElementById("signal4Reveal");
+    const answerBox = document.getElementById("answerBox");
+    const answerButton = document.getElementById("answerButton");
+    const answerResult = document.getElementById("answerResult");
 
-    if (sourceArea) {
-        sourceArea.style.display = "none";
+    if (answerButton) {
+
+        answerButton.addEventListener("click", function () {
+
+            const answer = answerBox.value.trim().toLowerCase();
+
+            if (answer === "red0x") {
+
+                answerResult.textContent = "signal accepted.";
+                answerResult.className = "correct";
+
+                setTimeout(function () {
+                    window.location.href = "learn.html";
+                }, 800);
+
+            } else {
+
+                answerResult.textContent = "wrong answer.";
+                answerResult.className = "wrong";
+            }
+        });
     }
 
-    if (numberArea) {
-        numberArea.style.display = "none";
+   
+
+    const numberButtons = document.querySelectorAll(".number");
+    const gridResult = document.getElementById("gridResult");
+    const sourceArea = document.getElementById("sourceArea");
+
+    if (numberButtons.length > 0) {
+
+        const correctOrder = [18, 5, 4, 24];
+
+        let currentStep = 0;
+
+        numberButtons.forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const number = Number(button.textContent);
+
+                if (number === correctOrder[currentStep]) {
+
+                    button.classList.add("used");
+
+                    currentStep++;
+
+                    if (currentStep === correctOrder.length) {
+
+                        gridResult.innerHTML =
+                            "signal accepted.<br>" +
+                            "<span class='hint'>> SIGNAL SOURCE FOUND.</span><br>" +
+                            "<span class='hint'>> click SIGNAL SOURCE and go to Instagram.</span><br>" +
+                            "<span class='hint'>> check the number after the ID name.</span>";
+
+                        gridResult.className = "correct";
+
+                        sourceArea.classList.remove("hidden");
+                    }
+
+                } else {
+
+                    currentStep = 0;
+
+                    gridResult.textContent = "wrong order.";
+                    gridResult.className = "wrong";
+
+                    numberButtons.forEach(function (button) {
+                        button.classList.remove("used");
+                    });
+                }
+            });
+        });
     }
 
-    if (nextArea) {
-        nextArea.style.display = "none";
+
+    const sourceButton = document.getElementById("sourceBtn");
+    const numberArea = document.getElementById("numberArea");
+
+    if (sourceButton) {
+
+        sourceButton.addEventListener("click", function () {
+
+            window.open(
+                "https://instagram.com/redox_106",
+                "_blank"
+            );
+
+            numberArea.classList.remove("hidden");
+        });
     }
 
-    if (signal4Reveal) {
-        signal4Reveal.style.display = "none";
+
+
+    const numberButton = document.getElementById("numberBtn");
+    const numberInput = document.getElementById("instagramNumber");
+    const numberResult = document.getElementById("numberResult");
+    const nextArea = document.getElementById("nextArea");
+    const nextMessage = document.getElementById("nextMessage");
+
+    if (numberButton) {
+
+        numberButton.addEventListener("click", function () {
+
+            const number = numberInput.value.trim();
+
+            if (number === "106") {
+
+                numberResult.textContent = "correct.";
+                numberResult.className = "correct";
+
+                nextMessage.textContent = "source confirmed.";
+                nextMessage.className = "correct";
+
+                nextArea.classList.remove("hidden");
+
+            } else {
+
+                numberResult.textContent = "wrong number.";
+                numberResult.className = "wrong";
+            }
+        });
     }
 
-    setupSignal02();
-    setupMemoryGame();
-
-});
 
 
 
-   /*SIGNAL 01
-*/
+    const signal03Button = document.getElementById("signal03Btn");
 
-let wrongAttempts = 0;
+    if (signal03Button) {
 
-
-function checkAnswer() {
-
-    const input = document.getElementById("answer");
-    const result = document.getElementById("result");
-
-    if (!input || !result) {
-        return;
+        signal03Button.addEventListener("click", function () {
+            window.location.href = "signal-03.html";
+        });
     }
 
-    const answer = input.value.trim().toLowerCase();
 
-    if (answer === "") {
 
-        result.textContent = "ENTER A RESPONSE";
+    const signal02Button = document.getElementById("signal02Continue");
 
+    if (signal02Button) {
+
+        signal02Button.addEventListener("click", function () {
+            window.location.href = "signal-03.html";
+        });
     }
 
-    else if (answer === "red0x") {
 
-        result.textContent =
-            "SIGNAL DECODED // ACCESS GRANTED";
 
-        const continueBtn =
-            document.getElementById("continueBtn");
+    const riddleButton = document.getElementById("riddleButton");
+    const riddleAnswer = document.getElementById("riddleAnswer");
+    const riddleResult = document.getElementById("riddleResult");
+    const equationArea = document.getElementById("equationArea");
 
-        if (continueBtn) {
-            continueBtn.style.display = "inline-block";
-        }
+    if (riddleButton) {
 
+        riddleButton.addEventListener("click", function () {
+
+            const answer = riddleAnswer.value.trim().toLowerCase();
+
+            if (answer === "map") {
+
+                riddleResult.textContent = "correct.";
+                riddleResult.className = "correct";
+
+                equationArea.classList.remove("hidden");
+
+            } else {
+
+                riddleResult.textContent = "wrong answer.";
+                riddleResult.className = "wrong";
+            }
+        });
     }
 
-    else {
 
-        wrongAttempts++;
 
-        if (wrongAttempts >= 12) {
 
-            result.textContent =
-                "I GUESS YOU WON'T MAKE IT!";
+    const equationButton = document.getElementById("equationButton");
+    const equationAnswer = document.getElementById("equationAnswer");
+    const equationResult = document.getElementById("equationResult");
+    const equation2Area = document.getElementById("equation2Area");
 
-        }
+    if (equationButton) {
 
-        else if (wrongAttempts >= 9) {
+        equationButton.addEventListener("click", function () {
 
-            result.textContent =
-                "A = 1, B = 2, C = 3...";
+            const answer = equationAnswer.value.trim();
 
-        }
+            if (answer === "35") {
 
-        else if (wrongAttempts >= 6) {
+                equationResult.textContent = "35 accepted.";
+                equationResult.className = "correct";
 
-            result.textContent =
-                "NUMBERS MAYBE DISGUISED AS ALPHABETS.";
+                equation2Area.classList.remove("hidden");
 
-        }
+            } else {
 
-        else if (wrongAttempts >= 3) {
-
-            result.textContent =
-                "THE ANSWER IS SOMEWHERE ON THIS WEBSITE.";
-
-        }
-
-        else {
-
-            result.textContent =
-                "WRONG SIGNAL // TRY AGAIN.";
-
-        }
-
+                equationResult.textContent = "wrong.";
+                equationResult.className = "wrong";
+            }
+        });
     }
 
-}
 
+  
+   
 
-/* =========================
-   SIGNAL 01 → SIGNAL 02
-========================= */
+    const equation2Button = document.getElementById("equation2Button");
+    const equation2Answer = document.getElementById("equation2Answer");
+    const equation2Result = document.getElementById("equation2Result");
+    const locationArea = document.getElementById("locationArea");
 
-function goToSignal02() {
-    window.location.href = "signal-02.html";
-}
+    if (equation2Button) {
 
+        equation2Button.addEventListener("click", function () {
 
-/* =========================
-   SIGNAL 02 GRID
-========================= */
+            const answer = equation2Answer.value.trim();
 
-let signal02Step = 0;
-let signal02Wrong = 0;
+            if (answer === "139") {
 
-const correctSequence = [18, 5, 4, 24];
+                equation2Result.textContent = "139 accepted.";
+                equation2Result.className = "correct";
 
+                locationArea.classList.remove("hidden");
 
-function setupSignal02() {
+            } else {
 
-    const gridBoxes =
-        document.querySelectorAll(".grid-box");
-
-    if (!gridBoxes.length) {
-        return;
+                equation2Result.textContent = "wrong.";
+                equation2Result.className = "wrong";
+            }
+        });
     }
 
-    gridBoxes.forEach(function (box) {
 
-        box.addEventListener("click", function () {
+  
 
-            const number =
-                Number(this.textContent);
+    const locationButton = document.getElementById("locationButton");
+    const locationAnswer = document.getElementById("locationAnswer");
+    const locationResult = document.getElementById("locationResult");
+    const shibuyaArea = document.getElementById("shibuyaArea");
+
+    if (locationButton) {
+
+        locationButton.addEventListener("click", function () {
+
+            const answer = locationAnswer.value.trim().toLowerCase();
+
+            if (answer === "tokyo") {
+
+                locationResult.textContent = "location found.";
+                locationResult.className = "correct";
+
+                shibuyaArea.classList.remove("hidden");
+
+            } else {
+
+                locationResult.textContent = "wrong place.";
+                locationResult.className = "wrong";
+            }
+        });
+    }
+
+
+    /*SIGNAL 03 - SHIBUYA*/
+
+    const shibuyaButton = document.getElementById("shibuyaButton");
+    const shibuyaAnswer = document.getElementById("shibuyaAnswer");
+    const shibuyaResult = document.getElementById("shibuyaResult");
+    const gameArea = document.getElementById("gameArea");
+
+    if (shibuyaButton) {
+
+        shibuyaButton.addEventListener("click", function () {
+
+            const answer = shibuyaAnswer.value.trim().toLowerCase();
 
             if (
-                number ===
-                correctSequence[signal02Step]
+                answer === "shibuya" ||
+                answer === "shibuya crossing"
             ) {
 
-                this.style.background = "#213548";
-                this.style.borderColor = "#60829d";
+                shibuyaResult.textContent = "place confirmed.";
+                shibuyaResult.className = "correct";
 
-                signal02Step++;
+                gameArea.classList.remove("hidden");
 
-                if (
-                    signal02Step ===
-                    correctSequence.length
-                ) {
+            } else {
 
-                    showSignal02Message();
-
-                }
-
+                shibuyaResult.textContent = "look again.";
+                shibuyaResult.className = "wrong";
             }
+        });
+    }
 
-            else {
 
-                signal02Wrong++;
-                signal02Step = 0;
+    /*SIGNAL 03 - CROSSING GAME*/
 
-                gridBoxes.forEach(function (box) {
+    const startGame = document.getElementById("startGame");
+    const player = document.getElementById("player");
+    const finish = document.getElementById("finish");
+    const gameResult = document.getElementById("gameResult");
+    const jumbleArea = document.getElementById("jumbleArea");
 
-                    box.style.background = "";
-                    box.style.borderColor = "";
+    if (startGame) {
 
-                });
+        let playerX = 10;
+        let playerY = 10;
 
-                const result =
-                    document.getElementById("result");
+        let gameRunning = false;
+        let timeLeft = 30;
 
-                if (!result) {
-                    return;
-                }
+        let gameTimer = null;
 
-                if (signal02Wrong >= 6) {
 
-                    result.textContent =
-                        "SIGNAL RESET // THE OLD NUMBERS ARE STILL IMPORTANT.";
+        function updatePlayer() {
 
-                }
+            player.style.left = playerX + "px";
+            player.style.top = playerY + "px";
+        }
 
-                else if (signal02Wrong >= 3) {
 
-                    result.textContent =
-                        "SIGNAL RESET // LOOK BACK AT SIGNAL 01.";
+        function checkFinish() {
 
-                }
+            const playerBox = player.getBoundingClientRect();
+            const finishBox = finish.getBoundingClientRect();
 
-                else {
+            if (
+                playerBox.left < finishBox.right &&
+                playerBox.right > finishBox.left &&
+                playerBox.top < finishBox.bottom &&
+                playerBox.bottom > finishBox.top
+            ) {
 
-                    result.textContent =
-                        "WRONG SEQUENCE // TRY AGAIN.";
+                clearInterval(gameTimer);
 
-                }
+                gameRunning = false;
 
+                gameResult.textContent = "signal crossed.";
+                gameResult.className = "correct";
+
+                jumbleArea.classList.remove("hidden");
             }
+        }
 
+
+        startGame.addEventListener("click", function () {
+
+            clearInterval(gameTimer);
+
+            playerX = 10;
+            playerY = 10;
+
+            timeLeft = 30;
+
+            gameRunning = true;
+
+            updatePlayer();
+
+            gameResult.textContent = "30 seconds.";
+            gameResult.className = "";
+
+
+            gameTimer = setInterval(function () {
+
+                timeLeft--;
+
+                gameResult.textContent =
+                    timeLeft + " seconds.";
+
+
+                if (timeLeft <= 0) {
+
+                    clearInterval(gameTimer);
+
+                    gameRunning = false;
+
+                    gameResult.textContent =
+                        "time finished. try again.";
+
+                    gameResult.className = "wrong";
+                }
+
+            }, 1000);
         });
 
-    });
 
-}
-
-
-function showSignal02Message() {
-
-    const result =
-        document.getElementById("result");
-
-    if (result) {
-
-        result.textContent =
-            "SIGNAL FOUND // MESSAGE RECOVERED\n\n" +
-            "Kliknij źródło sygnału. Przejdziesz na stronę internetową – przewiń ją w dół. Znajdź na niej Instagram. Odpowiedzią są cyfry w identyfikatorze (ID).";
-
-    }
-
-    const answerArea =
-        document.getElementById("answer-area");
-
-    if (answerArea) {
-        answerArea.style.display = "block";
-    }
-
-}
-
-
-function checkLearnAnswer() {
-
-    const input =
-        document.getElementById("learnAnswer");
-
-    const result =
-        document.getElementById("result");
-
-    if (!input || !result) {
-        return;
-    }
-
-    const answer =
-        input.value.trim().toLowerCase();
-
-    if (answer === "instagram") {
-
-        result.textContent =
-            "ANSWER ACCEPTED // SIGNAL SOURCE FOUND";
-
-        const answerArea =
-            document.getElementById("answer-area");
-
-        const sourceArea =
-            document.getElementById("source-area");
-
-        if (answerArea) {
-            answerArea.style.display = "none";
-        }
-
-        if (sourceArea) {
-            sourceArea.style.display = "block";
-        }
-
-    }
-
-    else if (answer === "") {
-
-        result.textContent =
-            "ENTER A RESPONSE";
-
-    }
-
-    else {
-
-        result.textContent =
-            "WRONG ANSWER // READ THE MESSAGE AGAIN.";
-
-    }
-
-}
-
-
-function goToWebsite() {
-
-    window.open(
-        "https://red0x-106.github.io/",
-        "_blank"
-    );
-
-    const numberArea =
-        document.getElementById("number-area");
-
-    if (numberArea) {
-        numberArea.style.display = "block";
-    }
-
-}
-
-
-function checkInstagramNumber() {
-
-    const input =
-        document.getElementById("instagramNumber");
-
-    const result =
-        document.getElementById("result");
-
-    if (!input || !result) {
-        return;
-    }
-
-    const number =
-        input.value.trim();
-
-    if (number === "106") {
-
-        result.textContent =
-            "NUMBER ACCEPTED // SIGNAL 03 UNLOCKED";
-
-        const sourceArea =
-            document.getElementById("source-area");
-
-        const numberArea =
-            document.getElementById("number-area");
-
-        const nextMessage =
-            document.getElementById("nextMessage");
-
-        const nextArea =
-            document.getElementById("next-area");
-
-        if (sourceArea) {
-            sourceArea.style.display = "none";
-        }
-
-        if (numberArea) {
-            numberArea.style.display = "none";
-        }
-
-        if (nextMessage) {
-
-            nextMessage.textContent =
-                "SIGNAL 03 // CONNECTION ESTABLISHED";
-
-        }
-
-        if (nextArea) {
-            nextArea.style.display = "block";
-        }
-
-    }
-
-    else if (number === "") {
-
-        result.textContent =
-            "ENTER A NUMBER";
-
-    }
-
-    else {
-
-        result.textContent =
-            "WRONG NUMBER // CHECK THE ID.";
-
-    }
-
-}
-
-
-/* =========================
-   SIGNAL 02 → SIGNAL 03
-========================= */
-
-function goToSignal03() {
-
-   window.location.href = "signal-03.html";
-
-}
-
-
-/* =========================
-   SIGNAL 03
-========================= */
-
-function checkRiddle() {
-
-    const input =
-        document.getElementById("riddleAnswer");
-
-    const result =
-        document.getElementById("riddleResult");
-
-    const equationArea =
-        document.getElementById("equation-area");
-
-    if (!input || !result) {
-        return;
-    }
-
-    const answer =
-        input.value.trim().toLowerCase();
-
-    if (answer === "map") {
-
-        result.textContent =
-            "SIGNAL ACCEPTED // MAP DETECTED";
-
-        input.disabled = true;
-
-        const button =
-            input.parentElement.querySelector("button");
-
-        if (button) {
-            button.style.display = "none";
-        }
-
-        if (equationArea) {
-
-            equationArea.style.display = "block";
-
-            setTimeout(function () {
-
-                equationArea.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }, 250);
-
-        }
-
-    }
-
-    else if (answer === "") {
-
-        result.textContent =
-            "ENTER A RESPONSE";
-
-    }
-
-    else {
-
-        result.textContent =
-            "WRONG ANSWER // THINK ABOUT THE RIDDLE.";
-
-    }
-
-}
-
-
-function checkEquation() {
-
-    const input =
-        document.getElementById("equationAnswer");
-
-    const result =
-        document.getElementById("equationResult");
-
-    const equation2Area =
-        document.getElementById("equation2-area");
-
-    if (!input || !result) {
-        return;
-    }
-
-    const answer =
-        input.value.trim();
-
-    if (answer === "35") {
-
-        result.textContent =
-            "NUMBER ACCEPTED // 35";
-
-        input.disabled = true;
-
-        const button =
-            input.parentElement.querySelector("button");
-
-        if (button) {
-            button.style.display = "none";
-        }
-
-        if (equation2Area) {
-
-            equation2Area.style.display = "block";
-
-            setTimeout(function () {
-
-                equation2Area.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }, 250);
-
-        }
-
-    }
-
-    else if (answer === "") {
-
-        result.textContent =
-            "ENTER A NUMBER";
-
-    }
-
-    else {
-
-        result.textContent =
-            "WRONG ANSWER // TRY AGAIN.";
-
-    }
-
-}
-
-
-function checkEquation2() {
-
-    const input =
-        document.getElementById("equation2Answer");
-
-    const result =
-        document.getElementById("equation2Result");
-
-    const locationArea =
-        document.getElementById("location-area");
-
-    if (!input || !result) {
-        return;
-    }
-
-    const answer =
-        input.value.trim();
-
-    if (answer === "139") {
-
-        result.textContent =
-            "NUMBER ACCEPTED // COORDINATES FOUND";
-
-        input.disabled = true;
-
-        const button =
-            input.parentElement.querySelector("button");
-
-        if (button) {
-            button.style.display = "none";
-        }
-
-        if (locationArea) {
-
-            locationArea.style.display = "block";
-
-            setTimeout(function () {
-
-                locationArea.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }, 250);
-
-        }
-
-    }
-
-    else if (answer === "") {
-
-        result.textContent =
-            "ENTER A NUMBER";
-
-    }
-
-    else {
-
-        result.textContent =
-            "WRONG ANSWER // TRY AGAIN.";
-
-    }
-
-}
-
-
-function checkCity() {
-
-    const input =
-        document.getElementById("cityAnswer");
-
-    const result =
-        document.getElementById("cityResult");
-
-    const shibuyaStep =
-        document.getElementById("shibuya-step");
-
-    if (!input || !result) {
-        return;
-    }
-
-    const answer =
-        input.value.trim().toLowerCase();
-
-    if (
-        answer === "tokyo" ||
-        answer === "tokyo japan" ||
-        answer === "tokyo, japan"
-    ) {
-
-        result.textContent =
-            "CITY CONFIRMED // TOKYO, JAPAN";
-
-        input.style.display = "none";
-
-        const button =
-            document.querySelector("#city-step button");
-
-        if (button) {
-            button.style.display = "none";
-        }
-
-        if (shibuyaStep) {
-
-            shibuyaStep.style.display = "block";
-
-            setTimeout(function () {
-
-                shibuyaStep.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }, 250);
-
-        }
-
-    }
-
-    else if (answer === "") {
-
-        result.textContent =
-            "ENTER A CITY";
-
-    }
-
-    else {
-
-        result.textContent =
-            "WRONG CITY // FOLLOW THE COORDINATES.";
-
-    }
-
-}
-
-
-function checkLocation() {
-
-    const input =
-        document.getElementById("locationAnswer");
-
-    const result =
-        document.getElementById("locationResult");
-
-    const crossingGame =
-        document.getElementById("crossing-game");
-
-    if (!input || !result) {
-        return;
-    }
-
-    const answer =
-        input.value.trim().toLowerCase();
-
-    if (
-        answer === "shibuya crossing" ||
-        answer === "shibuya scramble crossing"
-    ) {
-
-        result.textContent =
-            "LOCATION CONFIRMED // SHIBUYA CROSSING";
-
-        input.style.display = "none";
-
-        const button =
-            document.querySelector("#shibuya-step button");
-
-        if (button) {
-            button.style.display = "none";
-        }
-
-        if (crossingGame) {
-
-            crossingGame.style.display = "block";
-
-            setTimeout(function () {
-
-                crossingGame.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }, 350);
-
-        }
-
-    }
-
-    else if (answer === "") {
-
-        result.textContent =
-            "ENTER A LOCATION";
-
-    }
-
-    else {
-
-        result.textContent =
-            "WRONG LOCATION // READ THE CLUE AGAIN.";
-
-    }
-
-}
-
-
-/* =========================
-   CROSSING GAME
-========================= */
-
-let gameRunning = false;
-let gameTimer = 30;
-let gameInterval = null;
-let gameAnimation = null;
-
-let playerX = 20;
-let playerY = 0;
-
-let keys = [];
-let obstacles = [];
-
-
-document.addEventListener("keydown", function (event) {
-
-    const activeElement =
-        document.activeElement;
-
-    if (
-        activeElement &&
-        (
-            activeElement.tagName === "INPUT" ||
-            activeElement.tagName === "TEXTAREA"
-        )
-    ) {
-        return;
-    }
-
-    if (!gameRunning) {
-        return;
-    }
-
-    const key =
-        event.key.toLowerCase();
-
-    if (
-        key === "arrowup" ||
-        key === "arrowdown" ||
-        key === "arrowleft" ||
-        key === "arrowright" ||
-        key === "w" ||
-        key === "a" ||
-        key === "s" ||
-        key === "d"
-    ) {
-
-        event.preventDefault();
-
-        keys[key] = true;
-
-    }
-
-});
-
-
-document.addEventListener("keyup", function (event) {
-
-    const key =
-        event.key.toLowerCase();
-
-    keys[key] = false;
-
-});
-
-
-function startCrossingGame() {
-
-    const board =
-        document.getElementById("game-board");
-
-    const player =
-        document.getElementById("player");
-
-    const startButton =
-        document.getElementById("startGameBtn");
-
-    const status =
-        document.getElementById("gameStatus");
-
-    const message =
-        document.getElementById("gameMessage");
-
-    const timer =
-        document.getElementById("gameTimer");
-
-    if (!board || !player) {
-        return;
-    }
-
-    gameRunning = true;
-    gameTimer = 30;
-    keys = [];
-
-    clearInterval(gameInterval);
-    cancelAnimationFrame(gameAnimation);
-
-    obstacles = [];
-
-    board
-        .querySelectorAll(".moving-obstacle")
-        .forEach(function (obstacle) {
-            obstacle.remove();
-        });
-
-    playerX =
-        (board.clientWidth / 2) -
-        (player.offsetWidth / 2);
-
-    playerY =
-        board.clientHeight - 45;
-
-    player.style.left =
-        playerX + "px";
-
-    player.style.top =
-        playerY + "px";
-
-    player.style.bottom =
-        "auto";
-
-    if (status) {
-        status.textContent = "RUNNING";
-    }
-
-    if (message) {
-        message.textContent =
-            "MOVE UP // AVOID THE SIGNAL TRAFFIC";
-    }
-
-    if (timer) {
-        timer.textContent = gameTimer;
-    }
-
-    if (startButton) {
-        startButton.textContent = "RESTART CROSSING";
-    }
-
-    createObstacles(board);
-
-    gameInterval =
-        setInterval(function () {
+        document.addEventListener("keydown", function (event) {
 
             if (!gameRunning) {
                 return;
             }
 
-            gameTimer--;
 
-            if (timer) {
-                timer.textContent = gameTimer;
+            const key = event.key.toLowerCase();
+
+
+            if (
+                key === "arrowright" ||
+                key === "d"
+            ) {
+                playerX += 10;
             }
 
-            if (gameTimer <= 0) {
-                endCrossingGame(false);
+
+            if (
+                key === "arrowleft" ||
+                key === "a"
+            ) {
+                playerX -= 10;
             }
 
-        }, 1000);
 
-    gameLoop();
-
-}
-
-
-function createObstacles(board) {
-
-    const lanes =
-        [75, 135, 195, 255, 315];
-
-    lanes.forEach(function (laneY, laneIndex) {
-
-        for (let i = 0; i < 2; i++) {
-
-            const obstacle =
-                document.createElement("div");
-
-            obstacle.className =
-                "moving-obstacle";
-
-            obstacle.style.top =
-                laneY + "px";
-
-            obstacle.style.zIndex = "15";
-
-            const direction =
-                laneIndex % 2 === 0
-                    ? 1
-                    : -1;
-
-            let startingX;
-
-            if (direction === 1) {
-                startingX =
-                    -80 - (i * 280);
+            if (
+                key === "arrowup" ||
+                key === "w"
+            ) {
+                playerY -= 10;
             }
 
-            else {
-                startingX =
-                    board.clientWidth +
-                    80 +
-                    (i * 280);
+
+            if (
+                key === "arrowdown" ||
+                key === "s"
+            ) {
+                playerY += 10;
             }
 
-            obstacle.style.left =
-                startingX + "px";
 
-            board.appendChild(obstacle);
+            if (playerX < 0) {
+                playerX = 0;
+            }
 
-            obstacles.push({
+            if (playerY < 0) {
+                playerY = 0;
+            }
 
-                element: obstacle,
+            if (playerX > 560) {
+                playerX = 560;
+            }
 
-                x: startingX,
+            if (playerY > 240) {
+                playerY = 240;
+            }
 
-                y: laneY,
 
-                width: 42,
+            updatePlayer();
 
-                height: 24,
-
-                direction: direction,
-
-                speed:
-                    5.5 +
-                    Math.random() * 2.5
-
-            });
-
-        }
-
-    });
-
-}
-
-
-function gameLoop() {
-
-    if (!gameRunning) {
-        return;
-    }
-
-    updatePlayer();
-    updateObstacles();
-
-    if (checkCollision()) {
-
-        endCrossingGame(false);
-
-        return;
-
-    }
-
-    if (playerY <= 45) {
-
-        endCrossingGame(true);
-
-        return;
-
-    }
-
-    gameAnimation =
-        requestAnimationFrame(gameLoop);
-
-}
-
-
-function updatePlayer() {
-
-    const board =
-        document.getElementById("game-board");
-
-    const player =
-        document.getElementById("player");
-
-    if (!board || !player) {
-        return;
-    }
-
-    const playerSpeed = 5;
-
-    if (keys["arrowup"] || keys["w"]) {
-        playerY -= playerSpeed;
-    }
-
-    if (keys["arrowdown"] || keys["s"]) {
-        playerY += playerSpeed;
-    }
-
-    if (keys["arrowleft"] || keys["a"]) {
-        playerX -= playerSpeed;
-    }
-
-    if (keys["arrowright"] || keys["d"]) {
-        playerX += playerSpeed;
-    }
-
-    const maxX =
-        board.clientWidth -
-        player.offsetWidth;
-
-    const maxY =
-        board.clientHeight -
-        player.offsetHeight;
-
-    if (playerX < 0) {
-        playerX = 0;
-    }
-
-    if (playerX > maxX) {
-        playerX = maxX;
-    }
-
-    if (playerY < 0) {
-        playerY = 0;
-    }
-
-    if (playerY > maxY) {
-        playerY = maxY;
-    }
-
-    player.style.left =
-        playerX + "px";
-
-    player.style.top =
-        playerY + "px";
-
-}
-
-
-function updateObstacles() {
-
-    const board =
-        document.getElementById("game-board");
-
-    if (!board) {
-        return;
-    }
-
-    obstacles.forEach(function (obstacle) {
-
-        obstacle.x +=
-            obstacle.speed *
-            obstacle.direction;
-
-        if (
-            obstacle.direction === 1 &&
-            obstacle.x >
-            board.clientWidth + 60
-        ) {
-            obstacle.x = -70;
-        }
-
-        if (
-            obstacle.direction === -1 &&
-            obstacle.x < -70
-        ) {
-            obstacle.x =
-                board.clientWidth + 60;
-        }
-
-        obstacle.element.style.left =
-            obstacle.x + "px";
-
-    });
-
-}
-
-
-function checkCollision() {
-
-    const player =
-        document.getElementById("player");
-
-    if (!player) {
-        return false;
-    }
-
-    const playerLeft = playerX;
-    const playerRight =
-        playerX + player.offsetWidth;
-
-    const playerTop = playerY;
-    const playerBottom =
-        playerY + player.offsetHeight;
-
-    for (
-        let i = 0;
-        i < obstacles.length;
-        i++
-    ) {
-
-        const obstacle =
-            obstacles[i];
-
-        const obstacleLeft =
-            obstacle.x;
-
-        const obstacleRight =
-            obstacle.x + obstacle.width;
-
-        const obstacleTop =
-            obstacle.y;
-
-        const obstacleBottom =
-            obstacle.y + obstacle.height;
-
-        if (
-            playerLeft < obstacleRight &&
-            playerRight > obstacleLeft &&
-            playerTop < obstacleBottom &&
-            playerBottom > obstacleTop
-        ) {
-
-            return true;
-
-        }
-
-    }
-
-    return false;
-
-}
-
-
-function endCrossingGame(won) {
-
-    if (!gameRunning) {
-        return;
-    }
-
-    gameRunning = false;
-
-    clearInterval(gameInterval);
-    cancelAnimationFrame(gameAnimation);
-
-    keys = [];
-
-    const status =
-        document.getElementById("gameStatus");
-
-    const message =
-        document.getElementById("gameMessage");
-
-    const startButton =
-        document.getElementById("startGameBtn");
-
-    if (won) {
-
-        if (status) {
-            status.textContent = "CLEARED";
-        }
-
-        if (message) {
-            message.textContent =
-                "CROSSING COMPLETE // SIGNAL PATH OPEN";
-        }
-
-        if (startButton) {
-            startButton.textContent =
-                "CROSSING COMPLETE";
-
-            startButton.disabled = true;
-        }
-
-        setTimeout(function () {
-            startJumbleStage();
-        }, 900);
-
-    }
-
-    else {
-
-        if (status) {
-            status.textContent = "FAILED";
-        }
-
-        if (message) {
-            message.textContent =
-                "SIGNAL LOST // TRY AGAIN";
-        }
-
-        if (startButton) {
-            startButton.textContent =
-                "TRY AGAIN";
-
-            startButton.disabled = false;
-        }
-
-    }
-
-}
-
-
-/* =========================
-   JUMBLE
-========================= */
-
-let jumbleAttempts = 3;
-
-
-function startJumbleStage() {
-
-    const stage =
-        document.getElementById("jumble-stage");
-
-    if (!stage) {
-        return;
-    }
-
-    stage.style.display = "block";
-
-    jumbleAttempts = 3;
-
-    const attempts =
-        document.getElementById("jumbleAttempts");
-
-    if (attempts) {
-        attempts.textContent =
-            jumbleAttempts;
-    }
-
-    setTimeout(function () {
-
-        stage.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
+            checkFinish();
         });
-
-    }, 250);
-
-}
-
-
-function checkJumble() {
-
-    const input =
-        document.getElementById("jumbleAnswer");
-
-    const result =
-        document.getElementById("jumbleResult");
-
-    if (!input || !result) {
-        return;
     }
 
-    const answer =
-        input.value.trim().toLowerCase();
 
-    const correctAnswers = [
-        "follow the signal",
-        "follow signal"
-    ];
+    /*SIGNAL 03 - JUMBLE */
 
-    if (answer === "") {
+    const jumbleButton = document.getElementById("jumbleButton");
+    const jumbleAnswer = document.getElementById("jumbleAnswer");
+    const jumbleResult = document.getElementById("jumbleResult");
+    const hiddenArea = document.getElementById("hiddenArea");
 
-        result.textContent =
-            "ENTER THE MESSAGE";
+    if (jumbleButton) {
 
-        return;
+        let jumbleTries = 0;
 
-    }
+        jumbleButton.addEventListener("click", function () {
 
-    if (correctAnswers.includes(answer)) {
+            const answer = jumbleAnswer.value.trim().toLowerCase();
 
-        result.textContent =
-            "MESSAGE RESTORED // SIGNAL CONTINUES";
+            if (answer === "follow the signal") {
 
-        input.disabled = true;
+                jumbleResult.textContent = "correct.";
+                jumbleResult.className = "correct";
 
-        const button =
-            input.parentElement.querySelector("button");
+                hiddenArea.classList.remove("hidden");
 
-        if (button) {
-            button.style.display = "none";
-        }
+            } else {
 
-        setTimeout(function () {
-            startHiddenStage();
-        }, 1000);
+                jumbleTries++;
 
-        return;
+                const triesLeft = 3 - jumbleTries;
 
-    }
+                if (triesLeft > 0) {
 
-    jumbleAttempts--;
+                    jumbleResult.textContent =
+                        "wrong. tries left: " + triesLeft;
 
-    const attempts =
-        document.getElementById("jumbleAttempts");
+                } else {
 
-    if (attempts) {
-        attempts.textContent =
-            jumbleAttempts;
-    }
+                    jumbleResult.textContent =
+                        "no more attempts.";
 
-    if (jumbleAttempts <= 0) {
+                    jumbleButton.disabled = true;
+                }
 
-        result.textContent =
-            "SIGNAL LOCKED // REFRESH AND TRY AGAIN";
-
-        input.disabled = true;
-
-        const button =
-            input.parentElement.querySelector("button");
-
-        if (button) {
-            button.disabled = true;
-        }
-
-    }
-
-    else {
-
-        result.textContent =
-            "MESSAGE CORRUPTED // TRY AGAIN";
-
-    }
-
-}
-
-
-/* =========================
-   HIDDEN STAGE
-========================= */
-
-function startHiddenStage() {
-
-    const stage =
-        document.getElementById("hidden-stage");
-
-    const message =
-        document.getElementById("hidden-message");
-
-    const continueButton =
-        document.getElementById("hiddenContinueBtn");
-
-    if (!stage || !message) {
-        return;
-    }
-
-    stage.style.display = "block";
-
-    message.style.opacity = "0";
-    message.textContent = "WAITING...";
-
-    if (continueButton) {
-        continueButton.style.display = "none";
-    }
-
-    setTimeout(function () {
-
-        message.textContent =
-            "REMEMBER: FOUR PAIRS";
-
-        message.style.opacity = "1";
-
-    }, 1200);
-
-    setTimeout(function () {
-
-        message.style.opacity = "0";
-
-    }, 2600);
-
-    setTimeout(function () {
-
-        message.textContent =
-            "SIGNAL STABLE";
-
-        message.style.opacity = "1";
-
-        if (continueButton) {
-            continueButton.style.display =
-                "inline-block";
-        }
-
-    }, 3300);
-
-    setTimeout(function () {
-
-        stage.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }, 300);
-
-}
-
-
-/* =========================
-   MEMORY GAME
-========================= */
-
-let memoryCards = [];
-let firstCard = null;
-let secondCard = null;
-let memoryLocked = false;
-let memoryMatches = 0;
-
-
-function setupMemoryGame() {
-
-    memoryCards =
-        document.querySelectorAll(".memory-card");
-
-    if (!memoryCards.length) {
-        return;
-    }
-
-    memoryCards.forEach(function (card) {
-
-        card.addEventListener("click", function () {
-
-            flipMemoryCard(card);
-
-        });
-
-    });
-
-}
-
-
-function startMemoryGame() {
-
-    const stage =
-        document.getElementById("memory-stage");
-
-    if (!stage) {
-        return;
-    }
-
-    stage.style.display = "block";
-
-    firstCard = null;
-    secondCard = null;
-
-    memoryLocked = false;
-    memoryMatches = 0;
-
-    const matchCount =
-        document.getElementById("matchCount");
-
-    const message =
-        document.getElementById("memoryMessage");
-
-    if (matchCount) {
-        matchCount.textContent = "0";
-    }
-
-    if (message) {
-        message.textContent = "";
-    }
-
-    memoryCards.forEach(function (card) {
-
-        card.disabled = false;
-
-        card.classList.remove(
-            "flipped",
-            "matched"
-        );
-
-        card.textContent = "?";
-
-    });
-
-    shuffleMemoryCards();
-
-    setTimeout(function () {
-
-        stage.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }, 250);
-
-}
-
-
-function shuffleMemoryCards() {
-
-    const values = [
-        "A",
-        "B",
-        "C",
-        "D",
-        "A",
-        "B",
-        "C",
-        "D"
-    ];
-
-    for (
-        let i = values.length - 1;
-        i > 0;
-        i--
-    ) {
-
-        const random =
-            Math.floor(
-                Math.random() *
-                (i + 1)
-            );
-
-        const temp =
-            values[i];
-
-        values[i] =
-            values[random];
-
-        values[random] =
-            temp;
-
-    }
-
-    memoryCards.forEach(function (card, index) {
-
-        card.dataset.card =
-            values[index];
-
-    });
-
-}
-
-
-function flipMemoryCard(card) {
-
-    if (
-        memoryLocked ||
-        card.classList.contains("flipped") ||
-        card.classList.contains("matched")
-    ) {
-        return;
-    }
-
-    card.classList.add("flipped");
-
-    card.textContent =
-        card.dataset.card;
-
-    if (!firstCard) {
-
-        firstCard = card;
-
-        return;
-
-    }
-
-    secondCard = card;
-
-    memoryLocked = true;
-
-    if (
-        firstCard.dataset.card ===
-        secondCard.dataset.card
-    ) {
-
-        firstCard.classList.add("matched");
-        secondCard.classList.add("matched");
-
-        firstCard.disabled = true;
-        secondCard.disabled = true;
-
-        memoryMatches++;
-
-        const matchCount =
-            document.getElementById("matchCount");
-
-        if (matchCount) {
-            matchCount.textContent =
-                memoryMatches;
-        }
-
-        firstCard = null;
-        secondCard = null;
-
-        memoryLocked = false;
-
-        if (memoryMatches === 4) {
-
-            const message =
-                document.getElementById("memoryMessage");
-
-            if (message) {
-
-                message.textContent =
-                    "MEMORY COMPLETE // FINAL SIGNAL UNLOCKED";
-
+                jumbleResult.className = "wrong";
             }
+        });
+    }
+
+
+    /*SIGNAL 03 - HIDDEN MESSAGE*/
+
+    const hiddenButton = document.getElementById("hiddenButton");
+    const hiddenResult = document.getElementById("hiddenResult");
+    const memoryArea = document.getElementById("memoryArea");
+
+    if (hiddenButton) {
+
+        hiddenButton.addEventListener("click", function () {
+
+            hiddenButton.disabled = true;
+
+            hiddenResult.textContent =
+                "searching...";
 
             setTimeout(function () {
 
-                finishSignal03();
+                hiddenResult.textContent =
+                    "signal detected.";
+
+                setTimeout(function () {
+
+                    hiddenResult.textContent =
+                        "the signal remembers.";
+
+                    memoryArea.classList.remove("hidden");
+
+                }, 700);
 
             }, 1000);
-
-        }
-
-    }
-
-    else {
-
-        setTimeout(function () {
-
-            firstCard.classList.remove("flipped");
-            secondCard.classList.remove("flipped");
-
-            firstCard.textContent = "?";
-            secondCard.textContent = "?";
-
-            firstCard = null;
-            secondCard = null;
-
-            memoryLocked = false;
-
-        }, 700);
-
-    }
-
-}
-
-
-/* =========================
-   SIGNAL 03 COMPLETE
-========================= */
-
-function finishSignal03() {
-
-    const finalStage =
-        document.getElementById("signal03-final");
-
-    const signal4Reveal =
-        document.getElementById("signal4Reveal");
-
-    if (!finalStage) {
-        return;
-    }
-
-    finalStage.style.display =
-        "block";
-
-    if (signal4Reveal) {
-
-        signal4Reveal.style.display =
-            "block";
-
-    }
-
-    setTimeout(function () {
-
-        finalStage.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
         });
+    }
 
-    }, 250);
 
-}
+    /*SIGNAL 03 - MEMORY*/
 
+    const memoryCards = document.querySelectorAll(".memory-card");
+    const signal03Complete =
+        document.getElementById("signal03Complete");
+
+    if (memoryCards.length > 0) {
+
+        let firstCard = null;
+        let secondCard = null;
+
+        let locked = false;
+
+        let matches = 0;
+
+
+        memoryCards.forEach(function (card) {
+
+            card.addEventListener("click", function () {
+
+                if (locked) {
+                    return;
+                }
+
+                if (card.classList.contains("open")) {
+                    return;
+                }
+
+
+                card.classList.add("open");
+
+                card.textContent =
+                    card.dataset.value;
+
+
+                if (firstCard === null) {
+
+                    firstCard = card;
+
+                    return;
+                }
+
+
+                secondCard = card;
+
+                locked = true;
+
+
+                if (
+                    firstCard.dataset.value ===
+                    secondCard.dataset.value
+                ) {
+
+                    matches++;
+
+                    firstCard = null;
+                    secondCard = null;
+
+                    locked = false;
+
+
+                    if (matches === 4) {
+
+                        signal03Complete.classList.remove("hidden");
+                    }
+
+                } else {
+
+                    setTimeout(function () {
+
+                        firstCard.classList.remove("open");
+                        secondCard.classList.remove("open");
+
+                        firstCard.textContent = "?";
+                        secondCard.textContent = "?";
+
+                        firstCard = null;
+                        secondCard = null;
+
+                        locked = false;
+
+                    }, 700);
+                }
+            });
+        });
+    }
+
+
+    /*SIGNAL 04 - CHECK SIGNAL */
+
+    const staticButton =
+        document.getElementById("staticButton");
+
+    const wakeUp =
+        document.getElementById("wakeUp");
+
+    if (staticButton) {
+
+        staticButton.addEventListener("click", function () {
+
+            wakeUp.classList.remove("hidden");
+        });
+    }
+
+
+    /*SIGNAL 04 - WAKE UP*/
+
+    const wakeButton =
+        document.getElementById("wakeButton");
+
+    const investigation =
+        document.getElementById("investigation");
+
+    if (wakeButton) {
+
+        wakeButton.addEventListener("click", function () {
+
+            investigation.classList.remove("hidden");
+        });
+    }
+
+
+    /*SIGNAL 04 - INVESTIGATION*/
+
+    const actionButtons =
+        document.querySelectorAll("[data-action]");
+
+    const output =
+        document.getElementById("output");
+
+    const fragmentArea =
+        document.getElementById("fragmentArea");
+
+    if (actionButtons.length > 0) {
+
+        const correctOrder = [
+            "archive",
+            "logs",
+            "status",
+            "unknown"
+        ];
+
+        let currentStep = 0;
+
+
+        actionButtons.forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const action = button.dataset.action;
+
+
+                if (action === correctOrder[currentStep]) {
+
+                    button.classList.add("used");
+
+                    currentStep++;
+
+
+                    if (currentStep === correctOrder.length) {
+
+                        output.textContent =
+                            "sequence accepted.";
+
+                        output.className =
+                            "correct";
+
+                        fragmentArea.classList.remove("hidden");
+                    }
+
+                } else {
+
+                    currentStep = 0;
+
+                    output.textContent =
+                        "wrong sequence.";
+
+                    output.className =
+                        "wrong";
+
+
+                    actionButtons.forEach(function (button) {
+                        button.classList.remove("used");
+                    });
+                }
+            });
+        });
+    }
+
+
+    /*  SIGNAL 04 - FRAGMENTS */
+
+    const fragmentButtons =
+        document.querySelectorAll("[data-fragment]");
+
+    const fragmentResult =
+        document.getElementById("fragmentResult");
+
+    const answerArea =
+        document.getElementById("answerArea");
+
+    if (fragmentButtons.length > 0) {
+
+        fragmentButtons.forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const fragment =
+                    button.dataset.fragment;
+
+
+                if (fragment === "one") {
+
+                    fragmentResult.textContent =
+                        "Signal 01 was the beginning.";
+
+                    fragmentResult.className =
+                        "correct";
+
+                    answerArea.classList.remove("hidden");
+
+                } else {
+
+                    fragmentResult.textContent =
+                        "that is not the first signal.";
+
+                    fragmentResult.className =
+                        "wrong";
+                }
+            });
+        });
+    }
+
+
+    /* SIGNAL 04 - FINAL ANSWER*/
+    
+
+    const finalButton =
+        document.getElementById("finalBtn");
+
+    const finalAnswer =
+        document.getElementById("finalAnswer");
+
+    const finalResult =
+        document.getElementById("finalResult");
+
+    const ending =
+        document.getElementById("ending");
+
+    const identityOutput =
+        document.getElementById("identityOutput");
+
+
+    if (finalButton) {
+
+        finalButton.addEventListener("click", function () {
+
+            const answer =
+                finalAnswer.value.trim();
+
+
+            if (answer === "18-5-4-0-24") {
+
+                finalResult.textContent =
+                    "pattern confirmed.";
+
+                finalResult.className =
+                    "correct";
+
+
+                ending.classList.remove("hidden");
+
+
+                identityOutput.innerHTML =
+                    "IDENTITY CONFIRMED.<br>" +
+                    "SOURCE: RED0X<br>" +
+                    "SIGNALS FOUND: 04<br>" +
+                    "CONNECTION TERMINATED.<br>" +
+                    "OBSERVER OFFLINE.";
+
+            } else {
+
+                finalResult.textContent =
+                    "wrong pattern.";
+
+                finalResult.className =
+                    "wrong";
+            }
+        });
+    }
+
+});
