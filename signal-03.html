@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOST SIGNAL // 03</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <div class="top">
+            <span>LOST SIGNAL</span>
+            <span>03 / 04</span>
+        </div>
+
+        <p class="system">> signal 02 accepted.</p>
+        <p class="system">> another signal detected.</p>
+
+        <h1>KEEP LOOKING.</h1>
+
+        <p class="message">
+            The signal is getting closer.
+        </p>
+
+        <p class="message">
+            Follow each clue carefully.
+        </p>
+
+
+        <!-- RIDDLE -->
+
+        <section class="puzzle">
+
+            <p class="label">CLUE 01</p>
+
+            <p class="message">
+                I can show you a place you've never been.
+            </p>
+
+            <p class="message">
+                I can guide you without moving.
+            </p>
+
+            <p class="message">
+                I can speak without making a sound.
+            </p>
+
+            <p class="message">
+                What am I?
+            </p>
+
+            <input
+                id="riddleAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="enter answer"
+            >
+
+            <button id="riddleButton" type="button">
+                SUBMIT
+            </button>
+
+            <p id="riddleResult"></p>
+
+        </section>
+
+
+        <!-- EQUATION 1 -->
+
+        <section id="equationArea" class="puzzle hidden">
+
+            <p class="label">CLUE 02</p>
+
+            <p class="message">
+                x + 17 = 52
+            </p>
+
+            <input
+                id="equationAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="find x"
+            >
+
+            <button id="equationButton" type="button">
+                SUBMIT
+            </button>
+
+            <p id="equationResult"></p>
+
+        </section>
+
+
+        <!-- EQUATION 2 -->
+
+        <section id="equation2Area" class="puzzle hidden">
+
+            <p class="label">CLUE 03</p>
+
+            <p class="message">
+                y - 61 = 78
+            </p>
+
+            <input
+                id="equation2Answer"
+                type="text"
+                autocomplete="off"
+                placeholder="find y"
+            >
+
+            <button id="equation2Button" type="button">
+                SUBMIT
+            </button>
+
+            <p id="equation2Result"></p>
+
+        </section>
+
+
+        <!-- LOCATION -->
+
+        <section id="locationArea" class="puzzle hidden">
+
+            <p class="label">CLUE 04</p>
+
+            <p class="message">
+                35 , 139
+            </p>
+
+            <p class="hint">
+                > these numbers point to a place.
+            </p>
+
+            <input
+                id="locationAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="enter place"
+            >
+
+            <button id="locationButton" type="button">
+                SUBMIT
+            </button>
+
+            <p id="locationResult"></p>
+
+        </section>
+
+
+        <!-- SHIBUYA -->
+
+        <section id="shibuyaArea" class="puzzle hidden">
+
+            <p class="label">CLUE 05</p>
+
+            <p class="message">
+                Crowds.
+            </p>
+
+            <p class="message">
+                Lights.
+            </p>
+
+            <p class="message">
+                People crossing from every direction.
+            </p>
+
+            <p class="hint">
+                > find the place in Tokyo.
+            </p>
+
+            <input
+                id="shibuyaAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="enter place"
+            >
+
+            <button id="shibuyaButton" type="button">
+                SUBMIT
+            </button>
+
+            <p id="shibuyaResult"></p>
+
+        </section>
+
+
+        <!-- CROSSING GAME -->
+
+        <section id="gameArea" class="game hidden">
+
+            <p class="label">CROSS THE SIGNAL</p>
+
+            <p class="message">
+                Reach the exit before the signal disappears.
+            </p>
+
+            <p class="hint">
+                > use arrow keys or WASD.
+            </p>
+
+            <div id="gameBoard">
+
+                <div id="player"></div>
+
+                <div id="finish">
+                    EXIT
+                </div>
+
+            </div>
+
+            <button id="startGame" type="button">
+                START
+            </button>
+
+            <p id="gameResult"></p>
+
+        </section>
+
+
+        <!-- JUMBLE -->
+
+        <section id="jumbleArea" class="puzzle hidden">
+
+            <p class="label">CLUE 06</p>
+
+            <p class="message">
+                Put these words in the correct order.
+            </p>
+
+            <p class="message">
+                SIGNAL THE FOLLOW
+            </p>
+
+            <input
+                id="jumbleAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="enter phrase"
+            >
+
+            <button id="jumbleButton" type="button">
+                SUBMIT
+            </button>
+
+            <p id="jumbleResult"></p>
+
+        </section>
+
+
+        <!-- HIDDEN MESSAGE -->
+
+        <section id="hiddenArea" class="puzzle hidden">
+
+            <p class="label">SIGNAL FOUND</p>
+
+            <p class="message">
+                Something is hidden inside the signal.
+            </p>
+
+            <p class="hint">
+                > click the button and wait.
+            </p>
+
+            <button id="hiddenButton" type="button">
+                SEARCH
+            </button>
+
+            <p id="hiddenResult"></p>
+
+        </section>
+
+
+        <!-- MEMORY GAME -->
+
+        <section id="memoryArea" class="puzzle hidden">
+
+            <p class="label">MEMORY</p>
+
+            <p class="message">
+                Find all four matching pairs.
+            </p>
+
+            <div class="memory-grid">
+
+                <button class="memory-card" data-value="red">
+                    ?
+                </button>
+
+                <button class="memory-card" data-value="blue">
+                    ?
+                </button>
+
+                <button class="memory-card" data-value="signal">
+                    ?
+                </button>
+
+                <button class="memory-card" data-value="zero">
+                    ?
+                </button>
+
+                <button class="memory-card" data-value="zero">
+                    ?
+                </button>
+
+                <button class="memory-card" data-value="signal">
+                    ?
+                </button>
+
+                <button class="memory-card" data-value="red">
+                    ?
+                </button>
+
+                <button class="memory-card" data-value="blue">
+                    ?
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SIGNAL 03 COMPLETE -->
+
+        <section id="signal03Complete" class="final hidden">
+
+            <p class="label">SIGNAL 03 COMPLETE</p>
+
+            <p class="message">
+                You found the third signal.
+            </p>
+
+            <p class="hint">
+                > one final signal remains.
+            </p>
+
+            <a href="signal-04.html">
+                SIGNAL 04
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
