@@ -52,10 +52,14 @@ While making LOST SIGNAL, I got more comfortable with:
 * Debugging things that randomly decided not to work 
 * Connecting different parts of a website into one experience
 
-* ##Some screen shots of showing that this works
-<img width="1919" height="978" alt="image" src="https://github.com/user-attachments/assets/2785e29a-14a5-4629-8757-2817b873d343" />
-<img width="1919" height="909" alt="image" src="https://github.com/user-attachments/assets/ae54202f-5a14-4f41-93c3-6befbe744bdd" />
-<img width="584" height="799" alt="image" src="https://github.com/user-attachments/assets/e928c9ef-f8ca-4234-915c-7935753c4e2a" />
+
+ ##Some screen shots of showing that this works
+<img width="1919" height="913" alt="image" src="https://github.com/user-attachments/assets/fdb44e1f-2c32-4478-9086-75baf548c19a" />
+<img width="1919" height="912" alt="image" src="https://github.com/user-attachments/assets/4c2f080f-0a25-400b-9d7e-063eb304c0f8" />
+![Uploading image.png…]()
+
+
+
 
 
 
